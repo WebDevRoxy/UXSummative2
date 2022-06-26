@@ -1,0 +1,264 @@
+/*
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+  <div class="grid-item">7</div>
+  <div class="grid-item">8</div>
+  <div class="grid-item">9</div>
+</div>
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+grid-template-columns: repeat(4, 100px);
+
+An HTML element becomes a grid container when its display property is set to grid or inline-grid.
+
+column-gap
+row-gap
+gap
+
+
+grid-auto-rows: minmax(150px, auto);
+
+grid-column-start: 1;
+grid-column-end: 2;
+
+OR
+
+grid-column: 1 / 2;
+
+grid-column: span 1;
+
+
+justify-content: center; to center grid
+
+
+justify-items: center; to center contents of column
+
+align-items: center, start or end; to center rows or place them somewhere
+
+
+fr fraction size
+
+
+
+nesting {
+    nesting {
+    
+    }
+}
+
+@mixin theme {
+
+}
+
+@include mixin();
+
+*/
+
+//CSS reset
+* {
+    margin: 0;
+    padding: 0;
+}
+
+//SCSS variables
+$valid-color: rgba(0, 180, 0, 0.75);
+
+$invalid-color: rgba(240, 0, 0, 0.75);
+
+$dark: black;
+
+$light: white;
+
+$lightAccent: #DEDEDE;
+
+$darkAccent: #373737;
+
+$colorAccentPrimary: #357088;
+
+$colorAccentSecondary: #D28500;
+
+$h1Size: 48px;
+
+$h2Size: 30px;
+
+$h3Size: 21px;
+
+$infoTextSize: 25px;
+
+$inputTextSize: 18px;
+
+$borderEdges: 7px;
+
+$borderEdgesLarge: 10px;
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: $light;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(14, auto);
+    grid-template-rows: repeat(12, auto);
+    column-gap: 16px;
+    justify-content: center;
+}
+
+//homepage header
+#headerContainer {
+    grid-row: 1;
+    grid-column: 1/-1;
+    color: $light;
+    background-color: $dark;
+    img {
+        grid-column: 2;
+        justify-items: center;
+        width: 85px;
+    }
+    h2 {
+        grid-column: 3/5;
+        justify-items: left;
+        font-size: $h2Size;
+        text-transform: uppercase;
+    }
+    h3 {
+        grid-column: 11/13;
+        justify-items: right;
+        font-size: $h3Size;
+    }
+}
+
+#accommodationSearchContainer {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    background-color: $lightAccent;
+    #h1 {
+        grid-row: 2;
+        align-items: bottom; //check this
+        font-size: $h1Size;
+    }
+    #preferencesFormSection {
+        grid-row: 3;
+        border-radius: $borderEdges;
+        border: 3px solid $darkAccent;
+        font-size: $inputTextSize;
+        color: $darkAccent;
+        font-family: Arial, Helvetica, sans-serif;
+        #peopleBox {
+            grid-column: 3/5;
+        }
+        #nightsBox {
+            grid-column: 6/8;
+        }
+        #priceBox {
+            grid-column: 9/11;
+        }
+    }
+    #searchButton {
+        grid-row: 3;
+        grid-column: 12; 
+        color: $light;
+        background-color: $colorAccentPrimary;
+        border-radius: $borderEdges;
+        padding-left: 27px;
+        padding-right: 27px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+#accommodationDisplayContainer {
+    grid-row: 5/auto;
+    padding-bottom: 80px;
+    grid-column: 3/10; 
+    background-color: $dark;
+    border-radius: $borderEdgesLarge;
+    box-shadow: $dark 0% 0% no-repeat padding-box;
+    #place {
+        width: 536px;
+        background-color: $light;
+        border-radius: $borderEdgesLarge;
+        grid-row: 6/auto;
+        padding-bottom: 75px;
+        span {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background-color: $light;
+            border-radius: 0px 0px 10px 0px;
+            font-size: $infoTextSize;
+            padding-left: 33px;
+            padding-right: 33px;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            text-align: center;
+            box-shadow: 0px 3px 6px $dark;
+        }
+        img {
+            height: 335px;
+        }
+        h2{
+            position: fixed;
+            top: 95px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        a {
+            background-color: $colorAccentPrimary;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            width: 258px;
+            height: 44px;
+            border-radius: $borderEdges;
+            font-size: $infoTextSize;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+    }
+}
+
+
+
+
+
+
+
+/* validation.css from live validation library */
+.lvValidField {
+    border: 1px solid $valid-color;
+}
+
+.lvInvalidField {
+    border: 1px solid $invalid-color;
+}
+
+.lvValid {
+    color: $valid-color
+}
+
+.lvInvalid {
+    color: $invalid-color;
+}
+
+.lvValidationMessage {
+    margin: 0 0 0 2px;
+}
