@@ -143,6 +143,14 @@ $(
             availablePrice = calculatePrice(data);
             availableNights = calculateNights(data);
 
+            //hide results before another search is made
+            $('#hotel').hide();
+            $('#hostel').hide();
+            $('#motel').hide();
+            $('#house').hide();
+            $('#nothingFound').hide();
+            $('#preSearchScreen').hide();
+
             var accommodationResults = calculateAccommodation(availablePlaces, availablePrice, availableNights);
             showAccommodationResults(accommodationResults);
         });
@@ -150,6 +158,8 @@ $(
         //shows accommodation if it matches the search calculations
         function showAccommodationResults(accommodationResults) {
             $('#accommodationDisplayContainer').show();
+
+            $('#preSearchScreen').hide();
 
             if (accommodationResults.hotel == true) {
                 $('#hotel').show();

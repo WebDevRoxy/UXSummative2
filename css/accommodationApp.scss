@@ -75,8 +75,8 @@ nesting {
 
 //CSS reset
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 //SCSS variables
@@ -115,94 +115,137 @@ body {
     background-color: $light;
 }
 
-.gridContainer {
-    display: grid;
-    grid-template-columns: repeat(14, auto);
-    grid-template-rows: repeat(12, auto);
+//align-items is y axis, justify-content is x axis
+/*.gridContainer {
+     display: grid;
+    grid-template-columns: "repeat(14, auto)";
+    grid-template-rows: "repeat(12, auto)";
     column-gap: 16px;
-    justify-content: center;
-}
+}*/
 
 //homepage header
 #headerContainer {
-    grid-row: 1;
-    grid-column: 1/-1;
+    //grid-row: 1;
+    //grid-column: 1/-1;
+    width: 100vw;
+    height: 113px;
     color: $light;
     background-color: $dark;
+    display: flex;
+    align-items: center;
+
     img {
-        grid-column: 2;
-        justify-items: center;
+        //grid-column: 2 / 3;
         width: 85px;
+        margin-left: 146px;
     }
+
     h2 {
-        grid-column: 3/5;
-        justify-items: left;
+        // grid-column: 3/5;
         font-size: $h2Size;
         text-transform: uppercase;
+        margin-left: 48px;
     }
+
     h3 {
-        grid-column: 11/13;
-        justify-items: right;
+        //grid-column: 11/13;
         font-size: $h3Size;
     }
 }
 
+$inputBoxPadding: 10px;
+
 #accommodationSearchContainer {
-    grid-row: 2/3;
-    grid-column: 1/-1;
+    //grid-row: 2/3;
+    //grid-column: 1/-1;
     background-color: $lightAccent;
-    #h1 {
-        grid-row: 2;
-        align-items: bottom; //check this
-        font-size: $h1Size;
-    }
-    #preferencesFormSection {
-        grid-row: 3;
-        border-radius: $borderEdges;
-        border: 3px solid $darkAccent;
-        font-size: $inputTextSize;
-        color: $darkAccent;
-        font-family: Arial, Helvetica, sans-serif;
-        #peopleBox {
-            grid-column: 3/5;
+    width: 100vw;
+    #accommodationSearch{
+        margin-left:283px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        #h1 {
+            //grid-row: 2;
+            align-items: bottom; //check this
+            font-size: $h1Size;
         }
-        #nightsBox {
-            grid-column: 6/8;
+
+        .preferencesFormSection {
+            //grid-row: 3;
+            display: inline-block;
+            margin: 0px 10px;
+            border-radius: $borderEdges;
+            font-size: $inputTextSize;
+            color: $darkAccent;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0px $inputBoxPadding;
+            input {
+                width:15vw;
+            }
         }
-        #priceBox {
-            grid-column: 9/11;
+
+        #searchButton {
+            //grid-row: 3;
+            //grid-column: 12; 
+            color: $light;
+            background-color: $colorAccentPrimary;
+            border-radius: $borderEdges;
+            border: none;
+            padding-left: 27px;
+            padding-right: 27px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
-    }
-    #searchButton {
-        grid-row: 3;
-        grid-column: 12; 
-        color: $light;
-        background-color: $colorAccentPrimary;
-        border-radius: $borderEdges;
-        padding-left: 27px;
-        padding-right: 27px;
-        padding-top: 10px;
-        padding-bottom: 10px;
     }
 }
 
-#accommodationDisplayContainer {
-    grid-row: 5/auto;
-    padding-bottom: 80px;
-    grid-column: 3/10; 
+@mixin accommodationBackground {
     background-color: $dark;
     border-radius: $borderEdgesLarge;
-    box-shadow: $dark 0% 0% no-repeat padding-box;
-    #place {
-        width: 536px;
+    filter:drop-shadow(7px 7px 5px $lightAccent);
+    margin-top: 105px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: auto;
+    min-height: 665px;
+    margin-left: 12.5vw;
+    margin-right: 12.5vw;
+}
+
+//display in black box before searching
+#preSearchScreen {
+    font-size: 40px;
+    color:$colorAccentSecondary;
+    @include accommodationBackground();
+}
+
+#accommodationDisplayContainer {
+    /* grid-row: 5/auto;
+    padding-bottom: 80px;
+    grid-column: 3/10; */
+    @include accommodationBackground();
+    min-width: 25vw;
+    min-height: 50vh;
+
+    #nothingFound {
+        font-size: 40px;
+        color: $light;
+    }
+
+    .place {
+        width: 532px;
         background-color: $light;
         border-radius: $borderEdgesLarge;
-        grid-row: 6/auto;
-        padding-bottom: 75px;
+        // grid-row: 6/auto;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        
         span {
             position: fixed;
-            top: 0px;
-            left: 0px;
             background-color: $light;
             border-radius: 0px 0px 10px 0px;
             font-size: $infoTextSize;
@@ -213,25 +256,31 @@ body {
             text-align: center;
             box-shadow: 0px 3px 6px $dark;
         }
+
         img {
-            height: 335px;
+            width: 532px;
         }
-        h2{
-            position: fixed;
-            top: 95px;
+
+        h2 {
             text-transform: uppercase;
+            color: $light;
+            font-weight:300;
+            background-color: $darkAccent;
             text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
+
         a {
             background-color: $colorAccentPrimary;
-            padding-top: 14px;
-            padding-bottom: 14px;
-            width: 258px;
-            height: 44px;
+            padding: 8px 65px;
+            margin-top: 15px;
+            margin-bottom: 15px;
             border-radius: $borderEdges;
             font-size: $infoTextSize;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
+            color: $light;
         }
     }
 }
@@ -241,14 +290,13 @@ body {
 
 
 
-
 /* validation.css from live validation library */
 .lvValidField {
-    border: 1px solid $valid-color;
+    border: 2px solid $valid-color;
 }
 
 .lvInvalidField {
-    border: 1px solid $invalid-color;
+    border: 2px solid $invalid-color;
 }
 
 .lvValid {
