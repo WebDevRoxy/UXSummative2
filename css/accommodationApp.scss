@@ -150,6 +150,8 @@ body {
     h3 {
         //grid-column: 11/13;
         font-size: $h3Size;
+        margin-left: auto;
+        margin-right: 48px;
     }
 }
 
@@ -160,10 +162,12 @@ $inputBoxPadding: 10px;
     //grid-column: 1/-1;
     background-color: $lightAccent;
     width: 100vw;
-    #accommodationSearch{
-        margin-left:283px;
+
+    #accommodationSearch {
+        margin-left: 283px;
         padding-top: 20px;
         padding-bottom: 20px;
+
         #h1 {
             //grid-row: 2;
             align-items: bottom; //check this
@@ -179,8 +183,9 @@ $inputBoxPadding: 10px;
             color: $darkAccent;
             font-family: Arial, Helvetica, sans-serif;
             padding: 0px $inputBoxPadding;
+
             input {
-                width:15vw;
+                width: 15vw;
             }
         }
 
@@ -202,7 +207,7 @@ $inputBoxPadding: 10px;
 @mixin accommodationBackground {
     background-color: $dark;
     border-radius: $borderEdgesLarge;
-    filter:drop-shadow(7px 7px 5px $lightAccent);
+    filter: drop-shadow(7px 7px 5px $lightAccent);
     margin-top: 105px;
     justify-content: center;
     align-items: center;
@@ -216,7 +221,7 @@ $inputBoxPadding: 10px;
 //display in black box before searching
 #preSearchScreen {
     font-size: 40px;
-    color:$colorAccentSecondary;
+    color: $colorAccentSecondary;
     @include accommodationBackground();
 }
 
@@ -227,6 +232,7 @@ $inputBoxPadding: 10px;
     @include accommodationBackground();
     min-width: 25vw;
     min-height: 50vh;
+    display: inline-flex;
 
     #nothingFound {
         font-size: 40px;
@@ -243,12 +249,13 @@ $inputBoxPadding: 10px;
         display: flex;
         flex-direction: column;
         justify-items: center;
-        
-        span {
+
+        //accommodation price
+        h3 {
             position: fixed;
             background-color: $light;
             border-radius: 0px 0px 10px 0px;
-            font-size: $infoTextSize;
+            font-size: $h3Size;
             padding-left: 33px;
             padding-right: 33px;
             padding-top: 9px;
@@ -259,12 +266,13 @@ $inputBoxPadding: 10px;
 
         img {
             width: 532px;
+            height: 354px;
         }
 
         h2 {
             text-transform: uppercase;
             color: $light;
-            font-weight:300;
+            font-weight: 300;
             background-color: $darkAccent;
             text-align: center;
             padding-top: 20px;
@@ -281,6 +289,180 @@ $inputBoxPadding: 10px;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color: $light;
+            width: 275px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+
+//modals
+
+.modalContainer {
+    @include accommodationBackground();
+    display: flex;
+    color: $light;
+
+    .column-left {
+        flex: 50%;
+        margin-top: 5rem;
+        display: grid;
+        justify-content: right;
+    }
+    .column-right {
+        flex: 50%;
+        padding-left: 1rem;
+        display: grid;
+        justify-content: left;
+    }
+    h1 {
+        font-size: $h1Size;
+    }
+
+    h3 {
+        font-size: $h3Size;
+    }
+
+    img {
+        width: 532px;
+    }
+
+    #map {
+        width: 550px;
+        height: 262px;
+    }
+
+    a {
+        color: $light;
+    }
+
+    #websiteLink {
+        background-color: $colorAccentSecondary;
+        border-radius: 10px 10px 0px 0px;
+        font-size: $infoTextSize;
+        font-family: Arial, Helvetica, sans-serif;
+        padding-left: 53.5px;
+        padding-right: 53.5px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        text-align: center;
+    }
+
+    p {
+        font-size: $inputTextSize;
+    }
+
+    .bookButtonContainer {
+        text-align: center;  
+    }    
+
+    #bookHotel {
+        background-color: $colorAccentPrimary;
+        text-transform: uppercase;
+        padding: 6px 46.5px 6px 46.5px;
+        font-size: $h2Size;
+        text-decoration: none;
+        border: $borderEdges;
+    }
+
+    ul {
+        list-style-type: circle;
+        display: flex;
+    }
+
+    li {
+        padding-right: 30px;
+    }
+}
+
+.menu {
+    margin-top: 1rem;
+    h2 {
+        text-transform: uppercase;
+        font-size: $h2Size;
+    }
+
+    h3 {
+        font-size: $infoTextSize;
+        font-weight: 400;
+        width: 7rem;
+    }
+}
+
+.menuItem {
+    display: flex;
+    align-items: baseline;
+    padding-left: 1.5rem;
+}
+
+#hotelBackButtonContainer {
+    //grid-row: 2/3;
+    //grid-column: 1/-1;
+    background-color: $lightAccent;
+    width: 100vw;
+    align-items: bottom; //check this
+    font-size: $h2Size;
+    display: flex;
+
+    .backButton {
+        color: $dark;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 283px;
+    }
+}
+
+//booking form
+/*#backgroundBlur {
+    top: 0px;
+    left:0px;
+    position: absolute; //is there a way to do this without absolute?
+    background-color: $dark;
+    opacity: 0.8;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}*/
+
+#bookingPortalContainer {
+    background-color: $darkAccent;
+    width: 40vw;
+    height: 566px;
+    color: $light;
+    border-radius: 20px;
+    position: absolute;
+    .closeModal {
+        color: $light;
+        border: none;
+        background-color: $darkAccent;
+        font-size: $infoTextSize;
+        margin-top:10px;
+        margin-left:20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        input {
+            width: 30vw;
+            height: 44px;
+            border-radius: $borderEdges;
+            border: $dark;
+        }
+        label {
+            font-size: $h2Size;
+        }
+        #submitButton {
+            background-color: $colorAccentPrimary;
+            text-transform: uppercase;
+            padding: 6px 46.5px 6px 46.5px;
+            font-size: $h2Size;
+            text-decoration: none;
+            border-radius: $borderEdges;
+            border: none;
+            color: $light;
+            margin-top: 40px;
         }
     }
 }

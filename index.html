@@ -25,13 +25,13 @@
 </head>
 
 <body>
+    <div id="headerContainer">
+        <img src="media\tourismNZLogoWhite.png" alt="NZ Accommodation Finder logo">
+        <h2>Tourism New Zealand</h2>
+        <h3>Auckland Accommodation Finder</h3>
+    </div>
     <section id="userAccommodationPreferences">
         <div class="gridContainer">
-            <div id="headerContainer">
-                <img src="media\tourismNZLogoWhite.png" alt="NZ Accommodation Finder logo">
-                <h2>Tourism New Zealand</h2>
-                <h3>Auckland Accommodation Finder</h3>
-            </div>
             <div id="accommodationSearchContainer">
                 <div id="accommodationSearch">
                     <h1>Auckland Accommodation Finder</h1>
@@ -51,31 +51,31 @@
                 </div>
             </div>
 
-            <div id="preSearchScreen" style="display:none">
-                <p>Search and your accommodation options will appear here!</p> 
+            <div id="preSearchScreen">
+                <p>Search and your accommodation options will appear here!</p>
             </div>
-            <div id="accommodationDisplayContainer">
+            <div id="accommodationDisplayContainer" style="display:none">
                 <div class="place" id="hotel">
-                    <span>$157 per night</span>
+                    <h3>$157 per night</h3>
                     <img src="media\ramadaHotel.jpg" alt="Ramada hotel Wyndham Newmarket">
                     <h2>Ramada Hotel</h2>
                     <a id="viewHotelButton">Learn More</a>
                 </div>
                 <div class="place" id="hostel" style="display:none">
-                    <span>$30 per night</span>
+                    <h3>$30 per night</h3>
                     <img src="media\hakaLodgeHostel.jpg" alt="Haka Lodge hostel">
                     <h2>Haka Lodge</h2>
                     <a id="viewHostelButton">Learn More</a>
                 </div>
                 <div class="place" id="motel" style="display:none">
-                    <span>$90 per night</span>
+                    <h3>$90 per night</h3>
                     <img src="media\flatBushMotel.jpg" alt="Flat Bush Holiday Accomodation motel">
                     <h2>Flat Bush Holiday Accomodation</h2>
                     <a id="viewMotelButton">Learn More</a>
                 </div>
-                <div class="place" id="house" >
+                <div class="place" id="house" style="display:none">
                     <img src="media\penthouse.jpg" alt="Luxury 3BR, 1.5 Bath Penthouse">
-                    <span>$240 per night</span>
+                    <h3>$240 per night</h3>
                     <h2>Luxury 3BR, 1.5 Bath Penthouse</h2>
                     <a id="viewHouseButton">Learn More</a>
                 </div>
@@ -88,77 +88,47 @@
     </section>
 
     <!--Hotel modal-->
-    <section id="hotelModalSection" class="stepBackground stepMobileBackground" style="display: none">
+    <section id="hotelModalSection" style="display:none">
         <div class="gridContainer">
-            <div class="header">
-                <img src="" alt="NZ Accommodation Finder logo">
-            </div>
-            <div class="modalContainer" id="modalHotel" style="display: none">
+            <div id="hotelBackButtonContainer">
                 <a class="backButton" id="hotelBack">Back</a>
-
-                <div class="modal">
-                    <h1>Ramada Hotel</h1>
-                    <h3>Wyndham Newmarket</h3>
-                </div>
-
-                <div class="row">
-                    <div class="col ">
-                        <!--columns heres-->
-                        <img class="accommodationImage" src="media\ramadaHotel.jpg"
-                            alt="Ramada hotel Wyndham Newmarket">
-                    </div>
-                    <a href="https://www.wyndhamhotels.com/">View Website</a>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <!--columns heres-->
-                        <p>Across from shopping and dining at Westfield Newmarket and 17 kilometers from Auckland
-                            Airport
-                            (AKL), Ramada by Wyndham Newmarket Auckland provides a relaxing stay with on-site parking
-                            (prior
-                            booking required), free WiFi, and apartment-style accommodations.</p>
-                    </div>
-                    <a class="modalBookButton" id="bookHotel">Book Now</a>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <!--columns heres-->
-                        <div class="menu">
-                            <h2>Menu</h2>
+            </div>
+            <div class="modalContainer" id="modalHotel">
+                <div class="column-left">
+                    <a href="https://www.wyndhamhotels.com/" id="websiteLink">View Website</a>
+                    <img class="accommodationImage" src="media\ramadaHotel.jpg" alt="Ramada hotel Wyndham Newmarket">
+                    <div class="menu">
+                        <h2>Menu</h2>
+                        <div class="menuItem">
                             <h3>Breakfast</h3>
                             <div id="hotelBreakfastContainer"></div>
-                            <!--<ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>-->
+                        </div>
+                        <div class="menuItem">
                             <h3>Lunch</h3>
                             <div id="hotelLunchContainer"></div>
-                            <!--<ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>-->
+                        </div>
+                        <div class="menuItem">
                             <h3>Dinner</h3>
                             <div id="hotelDinnerContainer"></div>
-                            <!--<ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>-->
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col">
-                        <!--columns heres-->
-                        <iframe id="map"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7912965996643!2d174.77167601535496!3d-36.871414079933984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4877f75c0001%3A0x81a670eb3876ae1b!2sRamada%20by%20Wyndham%20Newmarket%20Auckland!5e0!3m2!1sen!2snz!4v1655722540601!5m2!1sen!2snz"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="column-right">
+                    <h1>Ramada Hotel</h1>
+                    <h3>$157 per night</h3>
+                    <p>Across from shopping and dining at Westfield Newmarket and 17 kilometers from Auckland
+                        Airport
+                        (AKL), Ramada by Wyndham Newmarket Auckland provides a relaxing stay with on-site parking
+                        (prior
+                        booking required), free WiFi, and apartment-style accommodations.</p>
+                    <iframe id="map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7912965996643!2d174.77167601535496!3d-36.871414079933984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4877f75c0001%3A0x81a670eb3876ae1b!2sRamada%20by%20Wyndham%20Newmarket%20Auckland!5e0!3m2!1sen!2snz!4v1655722540601!5m2!1sen!2snz"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <br />
+                    <br />
+                    <div class="bookButtonContainer">
+                        <a class="modalBookButton" id="bookHotel">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -172,27 +142,28 @@
     <!--House modal-->
 
     <!--Booking Portal-->
-    <div class="modalContainer" id="bookingPortal" style="display:none">
-        <button class="closeModal" type="button">Close</button>
-
-        <div class="bookingPortalContainer" id="userinfo">
+    <div id="bookingPortal" style="display:none">
+        <div id="bookingPortalContainer" id="userinfo">
+            <button class="closeModal" type="button">Close</button>
             <form>
                 <label>First Name</label>
-                <input type="text" id="firstName" pattern="/^[a-zA-Z]+$/g" required>
+                <input type="text" id="firstName" placeholder="Eg: John" pattern="/^[a-zA-Z]+$/g" required>
 
                 <label>Last Name</label>
-                <input type="text" id="lastName" pattern="/^[a-zA-Z]+$/g" required>
+                <input type="text" id="lastName" placeholder="Eg: Smith" pattern="/^[a-zA-Z]+$/g" required>
 
                 <label>Email</label>
-                <input type="email" id="email" pattern="/^([a-z0-9_.\-+]+)@([\da-z.-]+)(\.([a-z]{2,}))+$/" required>
+                <input type="email" id="email" placeholder="Eg: johnsmith@gmail.com"
+                    pattern="/^([a-z0-9_.\-+]+)@([\da-z.-]+)(\.([a-z]{2,}))+$/" required>
 
                 <label>Mobile Number</label>
-                <input type="number" id="mobileNumber" pattern="/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/"
-                    required>
+                <input type="number" id="mobileNumber" placeholder="Eg: 1234 567 890"
+                    pattern="/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/" required>
 
                 <button name="button" id="submitButton">Submit</button>
             </form>
         </div>
+        <div id="backgroundBlur"></div>
     </div>
 
     <!--Booking confirmation-->

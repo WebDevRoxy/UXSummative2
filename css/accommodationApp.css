@@ -114,6 +114,8 @@ body {
 
 #headerContainer h3 {
   font-size: 21px;
+  margin-left: auto;
+  margin-right: 48px;
 }
 
 #accommodationSearchContainer {
@@ -206,6 +208,9 @@ body {
   margin-right: 12.5vw;
   min-width: 25vw;
   min-height: 50vh;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 #accommodationDisplayContainer #nothingFound {
@@ -229,11 +234,11 @@ body {
   justify-items: center;
 }
 
-#accommodationDisplayContainer .place span {
+#accommodationDisplayContainer .place h3 {
   position: fixed;
   background-color: white;
   border-radius: 0px 0px 10px 0px;
-  font-size: 25px;
+  font-size: 21px;
   padding-left: 33px;
   padding-right: 33px;
   padding-top: 9px;
@@ -245,6 +250,7 @@ body {
 
 #accommodationDisplayContainer .place img {
   width: 532px;
+  height: 354px;
 }
 
 #accommodationDisplayContainer .place h2 {
@@ -267,6 +273,225 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: white;
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modalContainer {
+  background-color: black;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(7px 7px 5px #DEDEDE);
+          filter: drop-shadow(7px 7px 5px #DEDEDE);
+  margin-top: 105px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  min-height: 665px;
+  margin-left: 12.5vw;
+  margin-right: 12.5vw;
+  display: flex;
+  color: white;
+}
+
+.modalContainer .column-left {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  margin-top: 5rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.modalContainer .column-right {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  padding-left: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.modalContainer h1 {
+  font-size: 48px;
+}
+
+.modalContainer h3 {
+  font-size: 21px;
+}
+
+.modalContainer img {
+  width: 532px;
+}
+
+.modalContainer #map {
+  width: 550px;
+  height: 262px;
+}
+
+.modalContainer a {
+  color: white;
+}
+
+.modalContainer #websiteLink {
+  background-color: #D28500;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 53.5px;
+  padding-right: 53.5px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  text-align: center;
+}
+
+.modalContainer p {
+  font-size: 18px;
+}
+
+.modalContainer .bookButtonContainer {
+  text-align: center;
+}
+
+.modalContainer #bookHotel {
+  background-color: #357088;
+  text-transform: uppercase;
+  padding: 6px 46.5px 6px 46.5px;
+  font-size: 30px;
+  text-decoration: none;
+  border: 7px;
+}
+
+.modalContainer ul {
+  list-style-type: circle;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalContainer li {
+  padding-right: 30px;
+}
+
+.menu {
+  margin-top: 1rem;
+}
+
+.menu h2 {
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.menu h3 {
+  font-size: 25px;
+  font-weight: 400;
+  width: 7rem;
+}
+
+.menuItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  padding-left: 1.5rem;
+}
+
+#hotelBackButtonContainer {
+  background-color: #DEDEDE;
+  width: 100vw;
+  -webkit-box-align: bottom;
+      -ms-flex-align: bottom;
+          align-items: bottom;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#hotelBackButtonContainer .backButton {
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 283px;
+}
+
+/*#backgroundBlur {
+    top: 0px;
+    left:0px;
+    position: absolute; //is there a way to do this without absolute?
+    background-color: $dark;
+    opacity: 0.8;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}*/
+#bookingPortalContainer {
+  background-color: #373737;
+  width: 40vw;
+  height: 566px;
+  color: white;
+  border-radius: 20px;
+  position: absolute;
+}
+
+#bookingPortalContainer .closeModal {
+  color: white;
+  border: none;
+  background-color: #373737;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#bookingPortalContainer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#bookingPortalContainer form input {
+  width: 30vw;
+  height: 44px;
+  border-radius: 7px;
+  border: black;
+}
+
+#bookingPortalContainer form label {
+  font-size: 30px;
+}
+
+#bookingPortalContainer form #submitButton {
+  background-color: #357088;
+  text-transform: uppercase;
+  padding: 6px 46.5px 6px 46.5px;
+  font-size: 30px;
+  text-decoration: none;
+  border-radius: 7px;
+  border: none;
+  color: white;
+  margin-top: 40px;
 }
 
 /* validation.css from live validation library */

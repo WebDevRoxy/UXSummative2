@@ -188,7 +188,6 @@ $(
             $('#userAccommodationPreferences').hide();
             $('#modalHotel').fadeIn(300); //change transition
             hotelMeals();
-
         })
 
         $('#viewHostelButton').click(function () {
@@ -230,6 +229,7 @@ $(
             var hotelBreakfast = ['French Toast', 'Waffles', 'Cereal'];
             var hotelLunch = ['Sandwiches', 'Hot Dogs'];
             var hotelDinner = ['Lasagna', 'Chicken Katsu', 'Pizza'];
+
             var ulBreakfast = '<ul>';
             var ulLunch = '<ul>';
             var ulDinner = '<ul>';
@@ -238,22 +238,22 @@ $(
             hotelBreakfast.forEach(function (hotelBreakfast) {
                 ulBreakfast += '<li>' + hotelBreakfast + '</li>';
             })
-            ulBreakfast += '</ul';
-            document.getElementById(hotelBreakfastContainer).innerHTML = ulBreakfast;
+            ulBreakfast += '</ul>';
+            $('#hotelBreakfastContainer').html(ulBreakfast);
 
             //hotel lunch
             hotelLunch.forEach(function (hotelLunch) {
                 ulLunch += '<li>' + hotelLunch + '</li>';
             })
-            ulLunch += '</ul';
-            document.getElementById(hotelLunchContainer).innerHTML = ulLunch;
+            ulLunch += '</ul>';
+            $('#hotelLunchContainer').html(ulLunch);
 
             //hotel dinner
             hotelDinner.forEach(function (hotelDinner) {
                 ulDinner += '<li>' + hotelDinner + '</li>';
             })
-            ulDinner += '</ul';
-            document.getElementById(hotelDinnerContainer).innerHTML = ulDinner;
+            ulDinner += '</ul>';
+            $('#hotelDinnerContainer').html(ulDinner);
         }
 
         //hostel menu
