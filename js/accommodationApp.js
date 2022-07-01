@@ -135,9 +135,14 @@ $(
         }
 
         $('#searchButton').click(function () {
-            peopleAmount = document.getElementById('peopleInput').value.trim();
-            nightsAmount = document.getElementById('nightsInput').value.trim();
-            maxPrice = document.getElementById('maxPriceInput').value.trim();
+
+            if (!LiveValidation.massValidate( [ validatedPeopleInput, validatedNightsInput, validatedPriceInput ] )) {
+                return;
+            }
+
+            peopleAmount = $('#peopleInput').val().trim();
+            nightsAmount = $('#nightsInput').val().trim();
+            maxPrice = $('#maxPriceInput').val().trim();
 
             availablePlaces = calculatePlaces(data);
             availablePrice = calculatePrice(data);
@@ -182,52 +187,65 @@ $(
             }
         }
 
-        //toggle
+        //toggle modals
         $('#viewHotelButton').click(function () {
             $('#hotelModalSection').show();
             $('#userAccommodationPreferences').hide();
             $('#modalHotel').fadeIn(300); //change transition
             hotelMeals();
-        })
+        });
 
         $('#viewHostelButton').click(function () {
-            $('#hostelModalSection').show;
-            $('#userAccommodationPreferences').hide;
-        })
+            $('#hostelModalSection').show();
+            $('#userAccommodationPreferences').hide();
+            $('#modalHostel').fadeIn(300); //change transition
+            hostelMeals();
+        });
 
         $('#viewMotelButton').click(function () {
-            $('#motelModalSection').show;
-            $('#userAccommodationPreferences').hide;
-        })
+            $('#motelModalSection').show();
+            $('#userAccommodationPreferences').hide();
+            $('#modalMotel').fadeIn(300); //change transition
+            motelMeals();
+        });
 
         $('#viewHouseButton').click(function () {
-            $('#houseModalSection').show;
-            $('#userAccommodationPreferences').hide;
-        })
+            $('#houseModalSection').show();
+            $('#userAccommodationPreferences').hide();
+            $('#modalHouse').fadeIn(300); //change transition
+            houseMeals();
+        });
 
-        //modal js
-
-        //map api here
-
-        //close modal
+        //close hotel modal
         $('#hotelBack').click(function () {
             $('#hotelModalSection').hide();
             $('#userAccommodationPreferences').show();
-            $('#hotelModalSection').fadeIn(300);
-        })
+        });
 
+        //close hostle modal
+        $('#hostelBack').click(function () {
+            $('#hostelModalSection').hide();
+            $('#userAccommodationPreferences').show();
+        });
 
-        //toggle hostel
+        //close motel modal
+        $('#motelBack').click(function () {
+            $('#motelModalSection').hide();
+            $('#userAccommodationPreferences').show();
+        });
 
-        //toggle motel
+        //close house modal
+        $('#houseBack').click(function () {
+            $('#houseModalSection').hide();
+            $('#userAccommodationPreferences').show();
+        });
 
-        //toggle house
 
         //menus
         //hotel menu
         function hotelMeals() {
             var hotelBreakfast = ['French Toast', 'Waffles', 'Cereal'];
-            var hotelLunch = ['Sandwiches', 'Hot Dogs'];
+            var hotelLunch = ['Not Available'];
             var hotelDinner = ['Lasagna', 'Chicken Katsu', 'Pizza'];
 
             var ulBreakfast = '<ul>';
@@ -257,63 +275,115 @@ $(
         }
 
         //hostel menu
+        function hostelMeals() {
+            var hostelBreakfast = ['Not Available'];
+            var hostelLunch = ['Not Available'];
+            var hostelDinner = ['Not Available'];
+
+            var ulBreakfast = '<ul>';
+            var ulLunch = '<ul>';
+            var ulDinner = '<ul>';
+
+            //hotel breakfast
+            hostelBreakfast.forEach(function (hostelBreakfast) {
+                ulBreakfast += '<li>' + hostelBreakfast + '</li>';
+            })
+            ulBreakfast += '</ul>';
+            $('#hostelBreakfastContainer').html(ulBreakfast);
+
+            //hotel lunch
+            hostelLunch.forEach(function (hostelLunch) {
+                ulLunch += '<li>' + hostelLunch + '</li>';
+            })
+            ulLunch += '</ul>';
+            $('#hostelLunchContainer').html(ulLunch);
+
+            //hotel dinner
+            hostelDinner.forEach(function (hostelDinner) {
+                ulDinner += '<li>' + hostelDinner + '</li>';
+            })
+            ulDinner += '</ul>';
+            $('#hostelDinnerContainer').html(ulDinner);
+        }
 
         //motel menu
+        function motelMeals() {
+            var motelBreakfast = ['Toast', 'Cereal'];
+            var motelLunch = ['Not Available'];
+            var motelDinner = ['Not Available'];
+
+            var ulBreakfast = '<ul>';
+            var ulLunch = '<ul>';
+            var ulDinner = '<ul>';
+
+            //motel breakfast
+            motelBreakfast.forEach(function (motelBreakfast) {
+                ulBreakfast += '<li>' + motelBreakfast + '</li>';
+            })
+            ulBreakfast += '</ul>';
+            $('#motelBreakfastContainer').html(ulBreakfast);
+
+            //motel lunch
+            motelLunch.forEach(function (motelLunch) {
+                ulLunch += '<li>' + motelLunch + '</li>';
+            });
+            ulLunch += '</ul>';
+            $('#motelLunchContainer').html(ulLunch);
+
+            //hotel dinner
+            motelDinner.forEach(function (motelDinner) {
+                ulDinner += '<li>' + motelDinner + '</li>';
+            })
+            ulDinner += '</ul>';
+            $('#motelDinnerContainer').html(ulDinner);
+        }
 
         //house menu
+        function houseMeals() {
+            var houseBreakfast = ['French Toast', 'Pancakes', 'Cereal'];
+            var houseLunch = ['Sandwiches', 'Spagetti'];
+            var houseDinner = ['BBQ Ribs', 'Seafood', 'Pizza'];
+
+            var ulBreakfast = '<ul>';
+            var ulLunch = '<ul>';
+            var ulDinner = '<ul>';
+
+            //hotel breakfast
+            houseBreakfast.forEach(function (houseBreakfast) {
+                ulBreakfast += '<li>' + houseBreakfast + '</li>';
+            })
+            ulBreakfast += '</ul>';
+            $('#houseBreakfastContainer').html(ulBreakfast);
+
+            //hotel lunch
+            houseLunch.forEach(function (houseLunch) {
+                ulLunch += '<li>' + houseLunch + '</li>';
+            })
+            ulLunch += '</ul>';
+            $('#houseLunchContainer').html(ulLunch);
+
+            //hotel dinner
+            houseDinner.forEach(function (houseDinner) {
+                ulDinner += '<li>' + houseDinner + '</li>';
+            })
+            ulDinner += '</ul>';
+            $('#houseDinnerContainer').html(ulDinner);
+        }
 
         //go to booking form
         $('.modalBookButton').click(function () {
-            $('#bookingPortal').show;
             $('#bookingPortal').fadeIn(300);
-        })
+        });
+
+        $('#closeBookingPortal').click(function () {
+            $('#bookingPortal').hide();
+        });
 
         //submit booking form
         $('#submitButton').click(function () {
-            validation()
-        })
-
-        function validation() {
-            var firstName = document.getElementById('firstName').value.trim();
-            var lastName = document.getElementById('lastName').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var mobileNumber = document.getElementById('mobileNumber').value.trim();
-
-            //validation for form CHANGE
-
-            var bookingCheck = {
-                firstName: false,
-                lastName: false,
-                email: false,
-                mobileNumber: false,
-            }
-
-            if (firstName != '' && firstName != null) {
-                bookingCheck.firstName = true;
-            }
-
-            if (lasttName != '' && lastName != null) {
-                bookingCheck.lastName = true;
-            }
-
-            if (email != '' && email != null) {
-                bookingCheck.email = true;
-            }
-
-            if (mobileNumber != '' && mobileNumber != null) {
-                bookingCheck.mobileNumber = true;
-            }
-
-            function openConfirmation() {
-                $('#bookingConfirmation').show(300);
-            }
-
-            if (bookingCheck.firstName === true && bookingCheck.lastName === true && bookingCheck.email === true && bookingCheck.mobileNumber === true) {
-                openConfirmation()
-            } else {
-                //error message plugin
-            }
-        }
+            $('#bookingPortal').hide();
+            $('#bookingConfirmation').show();
+        });
 
         //live validation, code from live validation library
         //live validate people input
@@ -330,16 +400,5 @@ $(
         var validatedPriceInput = new LiveValidation('maxPriceInput', { validMessage: "Valid!" });
         validatedPriceInput.add(Validate.Presence); //validate if the input is not null
         validatedPriceInput.add(Validate.Numericality, { onlyInteger: true }); //validate int
-
-        //live validate first name input
-        var validatedFirstNameInput = new LiveValidation('firstName', { validMessage: "Valid!" });
-        validatedFirstNameInput.add(Validate.Presence); //validate if the input is not null
-        validatedFirstNameInput.add(Validate.Format, { pattern: /^[a-zA-Z]+$/ }); //validate regex
-
-        //live validate last name input
-        var validatedLastNameInput = new LiveValidation('lastName', { validMessage: "Valid!" });
-        validatedLastNameInput.add(Validate.Presence); //validate if the input is not null
-        validatedLastNameInput.add(Validate.Format, { pattern: /^[a-zA-Z]+$/ }); //validate regex
-
     }
 );

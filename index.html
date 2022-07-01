@@ -14,10 +14,6 @@
     <!--Notifications-->
     <link href="toastr.css" rel="stylesheet">
 
-    <!--Map API, change to google map-->
-    <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
-    <link href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css" rel='stylesheet'>
-
     <!--jQuery-->
     <script src="js/jQuery.js"></script>
 
@@ -35,19 +31,21 @@
             <div id="accommodationSearchContainer">
                 <div id="accommodationSearch">
                     <h1>Auckland Accommodation Finder</h1>
-                    <div class="preferencesFormSection peopleBox">
-                        <label>Number of people staying</label>
-                        <input type="int" placeholder="1 person" id="peopleInput" class="lvValidField" required>
-                    </div>
-                    <div class="preferencesFormSection nightsBox">
-                        <label>Number of nights</label>
-                        <input type="int" placeholder="2 nights" id="nightsInput" class="lvValidField" required>
-                    </div>
-                    <div class="preferencesFormSection priceBox">
-                        <label>Max Price</label>
-                        <input type="int" placeholder="$500" id="maxPriceInput" class="lvValidField" required>
-                    </div>
-                    <button id="searchButton">Search</button>
+
+                        <div class="preferencesFormSection peopleBox">
+                            <label>Number of people staying</label>
+                            <input type="int" placeholder="1 person" id="peopleInput" class="lvValidField" required>
+                        </div>
+                        <div class="preferencesFormSection nightsBox">
+                            <label>Number of nights</label>
+                            <input type="int" placeholder="2 nights" id="nightsInput" class="lvValidField" required>
+                        </div>
+                        <div class="preferencesFormSection priceBox">
+                            <label>Max Price</label>
+                            <input type="int" placeholder="$500" id="maxPriceInput" class="lvValidField" required>
+                        </div>
+                        <button id="searchButton">Search</button>
+                    
                 </div>
             </div>
 
@@ -59,27 +57,26 @@
                     <h3>$157 per night</h3>
                     <img src="media\ramadaHotel.jpg" alt="Ramada hotel Wyndham Newmarket">
                     <h2>Ramada Hotel</h2>
-                    <a id="viewHotelButton">Learn More</a>
+                    <button id="viewHotelButton">Learn More</button>
                 </div>
                 <div class="place" id="hostel" style="display:none">
                     <h3>$30 per night</h3>
-                    <img src="media\hakaLodgeHostel.jpg" alt="Haka Lodge hostel">
+                    <img src="media\hakaLodgeHostel.png" alt="Haka Lodge hostel">
                     <h2>Haka Lodge</h2>
-                    <a id="viewHostelButton">Learn More</a>
+                    <button id="viewHostelButton">Learn More</button>
                 </div>
                 <div class="place" id="motel" style="display:none">
                     <h3>$90 per night</h3>
-                    <img src="media\flatBushMotel.jpg" alt="Flat Bush Holiday Accomodation motel">
-                    <h2>Flat Bush Holiday Accomodation</h2>
-                    <a id="viewMotelButton">Learn More</a>
+                    <img src="media\ellersliePalmsMotel.webp" alt="Ellerslie Palms motel">
+                    <h2>Ellerslie Palms Motel</h2>
+                    <button id="viewMotelButton">Learn More</button>
                 </div>
                 <div class="place" id="house" style="display:none">
                     <img src="media\penthouse.jpg" alt="Luxury 3BR, 1.5 Bath Penthouse">
                     <h3>$240 per night</h3>
                     <h2>Luxury 3BR, 1.5 Bath Penthouse</h2>
-                    <a id="viewHouseButton">Learn More</a>
+                    <button id="viewHouseButton">Learn More</button>
                 </div>
-
                 <div id="nothingFound" style="display:none">
                     <p>Sorry! No places match your preferences :(</p>
                 </div>
@@ -91,10 +88,10 @@
     <section id="hotelModalSection" style="display:none">
         <div class="gridContainer">
             <div id="hotelBackButtonContainer">
-                <a class="backButton" id="hotelBack">Back</a>
+                <button class="backButton" id="hotelBack">Back</button>
             </div>
             <div class="modalContainer" id="modalHotel">
-                <div class="column-left">
+                <div class="columnLeft">
                     <a href="https://www.wyndhamhotels.com/" id="websiteLink">View Website</a>
                     <img class="accommodationImage" src="media\ramadaHotel.jpg" alt="Ramada hotel Wyndham Newmarket">
                     <div class="menu">
@@ -113,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="column-right">
+                <div class="columnRight">
                     <h1>Ramada Hotel</h1>
                     <h3>$157 per night</h3>
                     <p>Across from shopping and dining at Westfield Newmarket and 17 kilometers from Auckland
@@ -128,7 +125,7 @@
                     <br />
                     <br />
                     <div class="bookButtonContainer">
-                        <a class="modalBookButton" id="bookHotel">Book Now</a>
+                        <button class="modalBookButton" id="bookHotel">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -136,45 +133,179 @@
     </section>
 
     <!--Hostel modal-->
+    <section id="hostelModalSection" style="display:none">
+        <div class="gridContainer">
+            <div id="hostelBackButtonContainer">
+                <button class="backButton" id="hostelBack">Back</button>
+            </div>
+            <div class="modalContainer" id="modalHostel">
+                <div class="columnLeft">
+                    <a href="https://hakalodges.com/" id="websiteLink">View Website</a>
+                    <img class="accommodationImage" src="media\hakaLodgeHostel.png" alt="Haka Lodge hostel">
+                    <div class="menu">
+                        <h2>Menu</h2>
+                        <div class="menuItem">
+                            <h3>Breakfast</h3>
+                            <div id="hostelBreakfastContainer"></div>
+                        </div>
+                        <div class="menuItem">
+                            <h3>Lunch</h3>
+                            <div id="hostelLunchContainer"></div>
+                        </div>
+                        <div class="menuItem">
+                            <h3>Dinner</h3>
+                            <div id="hostelDinnerContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columnRight">
+                    <h1>Haka Lodge Hostel</h1>
+                    <h3>$30 per night</h3>
+                    <p>Welcome to the Auckland city hostel that feels like home! Situated in one of the most vibrant
+                        locations in central Auckland,
+                        Haka Lodge Auckland brings a new class of upmarket style to backpacker accommodation in the
+                        city.
+                        This historic building on Karangahape Road has been redeveloped to create a loft-style
+                        backpackers with modern furnishings,
+                        great social spaces, custom-made beds with the best mattresses and privacy curtains.</p>
+                    <iframe id="map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.35576805836!2d174.75444221529153!3d-36.85790227993674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47ea36bc5dd3%3A0x5141bf7297d88575!2sHaka%20Lodge%20Auckland!5e0!3m2!1sen!2snz!4v1656591445152!5m2!1sen!2snz"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <br />
+                    <br />
+                    <div class="bookButtonContainer">
+                        <button class="modalBookButton" id="bookHostel">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--Motel modal-->
+    <section id="motelModalSection" style="display:none">
+        <div class="gridContainer">
+            <div id="motelBackButtonContainer">
+                <button class="backButton" id="motelBack">Back</button>
+            </div>
+            <div class="modalContainer" id="modalMotel">
+                <div class="columnLeft">
+                    <a href="https://www.ellersliepalms.co.nz/" id="websiteLink">View Website</a>
+                    <img class="accommodationImage" src="media\ellersliePalmsMotel.png" alt="Ellerslie Palms motel">
+                    <div class="menu">
+                        <h2>Menu</h2>
+                        <div class="menuItem">
+                            <h3>Breakfast</h3>
+                            <div id="motelBreakfastContainer"></div>
+                        </div>
+                        <div class="menuItem">
+                            <h3>Lunch</h3>
+                            <div id="motelLunchContainer"></div>
+                        </div>
+                        <div class="menuItem">
+                            <h3>Dinner</h3>
+                            <div id="motelDinnerContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columnRight">
+                    <h1>Ellerslie Palms Motel</h1>
+                    <h3>$90 per night</h3>
+                    <p>Situated in Central Suburbs just 20 minutes from Central City and Airport.
+                        Convenient access to public transport and ample parking. with easy access [ 5 minutes ]
+                        to both southern & northern motorways. Free Wifi & Full Aircon.
+                        With real genuine Kiwi hospitality & service.</p>
+                    <iframe id="map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.7584267091997!2d174.83232451529267!3d-36.89612697992883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d49129f2dffbb%3A0x3bcedb3f0e5721bc!2sEllerslie%20Palms%20Motel!5e0!3m2!1sen!2snz!4v1656588917156!5m2!1sen!2snz"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <br />
+                    <br />
+                    <div class="bookButtonContainer">
+                        <button class="modalBookButton" id="bookMotel">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--House modal-->
+    <section id="houseModalSection" style="display:none">
+        <div class="gridContainer">
+            <div id="houseBackButtonContainer">
+                <button class="backButton" id="houseBack">Back</button>
+            </div>
+            <div class="modalContainer" id="modalHouse">
+                <div class="columnLeft">
+                    <a href="https://www.booking.com/hotel/nz/luxury-2br-1-5-bath-penthouse-with-fabulous-views.en-gb.html?aid=356980&label=gog235jc-1DCAsorgFCMWx1eHVyeS0yYnItMS01LWJhdGgtcGVudGhvdXNlLXdpdGgtZmFidWxvdXMtdmlld3NIM1gDaK4BiAEBmAEJuAEXyAEM2AED6AEBiAIBqAIDuAKBl_aVBsACAdICJDRhZDM1NTNjLTI5OGEtNGVhZC04MmI1LWQ3OGYwOGY2YjkxZdgCBOACAQ&sid=7f0a53ecf4507adef52b417bc7dc292e&dist=0&keep_landing=1&sb_price_type=total&type=total&#availability"
+                        id="websiteLink">View Website</a>
+                    <img class="accommodationImage" src="media\penthouse.jpg" alt="Luxury 3BR, 1.5 Bath Penthouse">
+                    <div class="menu">
+                        <h2>Menu</h2>
+                        <div class="menuItem">
+                            <h3>Breakfast</h3>
+                            <div id="houseBreakfastContainer"></div>
+                        </div>
+                        <div class="menuItem">
+                            <h3>Lunch</h3>
+                            <div id="houseLunchContainer"></div>
+                        </div>
+                        <div class="menuItem">
+                            <h3>Dinner</h3>
+                            <div id="houseDinnerContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columnRight">
+                    <h1>Luxury 3BR, 1.5 Bath Penthouse</h1>
+                    <h3>$240 per night</h3>
+                    <p>Located in Auckland, within 2.3 km of Masefield Beach and 2.5 km of Hamilton Road Beach,
+                        Luxury 3BR, 1.5 Bath Penthouse with Fabulous Views offers accommodation with free WiFi,
+                        air conditioning, a restaurant and a bar. Private parking is available on site.</p>
+                    <iframe id="map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.049814721349!2d174.76340874197254!3d-36.84128299928116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47f85dc9aa6d%3A0xa6f4cc0c5359955b!2s7%202%2F145%20Quay%20Street%2C%20Auckland%20CBD%2C%20Auckland%201010!5e0!3m2!1sen!2snz!4v1656589958983!5m2!1sen!2snz"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <br />
+                    <br />
+                    <div class="bookButtonContainer">
+                        <button class="modalBookButton" id="bookHouse">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--Booking Portal-->
     <div id="bookingPortal" style="display:none">
         <div id="bookingPortalContainer" id="userinfo">
-            <button class="closeModal" type="button">Close</button>
+            <button id="closeBookingPortal" type="button">Close</button>
             <form>
                 <label>First Name</label>
-                <input type="text" id="firstName" placeholder="Eg: John" pattern="/^[a-zA-Z]+$/g" required>
+                <input type="text" id="firstName" placeholder="Eg: John" pattern="[a-zA-Z]+$" required>
 
                 <label>Last Name</label>
-                <input type="text" id="lastName" placeholder="Eg: Smith" pattern="/^[a-zA-Z]+$/g" required>
+                <input type="text" id="lastName" placeholder="Eg: Smith" pattern="[a-zA-Z]+$" required>
 
                 <label>Email</label>
                 <input type="email" id="email" placeholder="Eg: johnsmith@gmail.com"
-                    pattern="/^([a-z0-9_.\-+]+)@([\da-z.-]+)(\.([a-z]{2,}))+$/" required>
+                    pattern="([a-z0-9_.\-+]+)@([\da-z.-]+)(\.([a-z]{2,}))+$" required>
 
                 <label>Mobile Number</label>
                 <input type="number" id="mobileNumber" placeholder="Eg: 1234 567 890"
-                    pattern="/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/" required>
+                    pattern="[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" required>
 
                 <button name="button" id="submitButton">Submit</button>
             </form>
         </div>
-        <div id="backgroundBlur"></div>
     </div>
 
     <!--Booking confirmation-->
-    <section id="bookingConfirmation" class="stepBackground stepMobileBackground" style="display:none">
-        <div class="header">
-            <img src="" alt="NZ Accommodation Finder logo">
-        </div>
+    <div id="bookingConfirmation" style="display:none">
         <h1>Your booking has been made!</h1>
         <h3>Enjoy your stay</h3>
         <button class="returnHome" type="button">Return to Home</button>
-    </section>
+    </div>
 
     <!--toastr script here-->
     <script src="toastr.js"></script>

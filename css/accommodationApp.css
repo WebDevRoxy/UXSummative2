@@ -1,80 +1,18 @@
-/*
-<div class="grid-container">
-  <div class="grid-item">1</div>
-  <div class="grid-item">2</div>
-  <div class="grid-item">3</div>
-  <div class="grid-item">4</div>
-  <div class="grid-item">5</div>
-  <div class="grid-item">6</div>
-  <div class="grid-item">7</div>
-  <div class="grid-item">8</div>
-  <div class="grid-item">9</div>
-</div>
-
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
-}
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
-
-grid-template-columns: repeat(4, 100px);
-
-An HTML element becomes a grid container when its display property is set to grid or inline-grid.
-
-column-gap
-row-gap
-gap
-
-
-grid-auto-rows: minmax(150px, auto);
-
-grid-column-start: 1;
-grid-column-end: 2;
-
-OR
-
-grid-column: 1 / 2;
-
-grid-column: span 1;
-
-
-justify-content: center; to center grid
-
-
-justify-items: center; to center contents of column
-
-align-items: center, start or end; to center rows or place them somewhere
-
-
-fr fraction size
-
-
-
-nesting {
-    nesting {
-    
-    }
-}
-
-@mixin theme {
-
-}
-
-@include mixin();
-
-*/
 * {
   margin: 0px;
   padding: 0px;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 21px;
 }
 
 body {
@@ -82,12 +20,6 @@ body {
   background-color: white;
 }
 
-/*.gridContainer {
-     display: grid;
-    grid-template-columns: "repeat(14, auto)";
-    grid-template-rows: "repeat(12, auto)";
-    column-gap: 16px;
-}*/
 #headerContainer {
   width: 100vw;
   height: 113px;
@@ -107,13 +39,11 @@ body {
 }
 
 #headerContainer h2 {
-  font-size: 30px;
   text-transform: uppercase;
   margin-left: 48px;
 }
 
 #headerContainer h3 {
-  font-size: 21px;
   margin-left: auto;
   margin-right: 48px;
 }
@@ -133,7 +63,6 @@ body {
   -webkit-box-align: bottom;
       -ms-flex-align: bottom;
           align-items: bottom;
-  font-size: 48px;
 }
 
 #accommodationSearchContainer #accommodationSearch .preferencesFormSection {
@@ -161,6 +90,12 @@ body {
   padding-bottom: 10px;
 }
 
+#accommodationSearchContainer #accommodationSearch #searchButton:hover {
+  background-color: #295668;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 #preSearchScreen {
   font-size: 40px;
   color: #D28500;
@@ -185,9 +120,6 @@ body {
 }
 
 #accommodationDisplayContainer {
-  /* grid-row: 5/auto;
-    padding-bottom: 80px;
-    grid-column: 3/10; */
   background-color: black;
   border-radius: 10px;
   -webkit-filter: drop-shadow(7px 7px 5px #DEDEDE);
@@ -238,7 +170,6 @@ body {
   position: fixed;
   background-color: white;
   border-radius: 0px 0px 10px 0px;
-  font-size: 21px;
   padding-left: 33px;
   padding-right: 33px;
   padding-top: 9px;
@@ -263,7 +194,7 @@ body {
   padding-bottom: 20px;
 }
 
-#accommodationDisplayContainer .place a {
+#accommodationDisplayContainer .place button {
   background-color: #357088;
   padding: 8px 65px;
   margin-top: 15px;
@@ -276,6 +207,12 @@ body {
   width: 275px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#accommodationDisplayContainer .place button:hover {
+  background-color: #295668;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .modalContainer {
@@ -301,7 +238,7 @@ body {
   color: white;
 }
 
-.modalContainer .column-left {
+.modalContainer .columnLeft {
   -webkit-box-flex: 50%;
       -ms-flex: 50%;
           flex: 50%;
@@ -313,7 +250,7 @@ body {
           justify-content: right;
 }
 
-.modalContainer .column-right {
+.modalContainer .columnRight {
   -webkit-box-flex: 50%;
       -ms-flex: 50%;
           flex: 50%;
@@ -325,14 +262,6 @@ body {
           justify-content: left;
 }
 
-.modalContainer h1 {
-  font-size: 48px;
-}
-
-.modalContainer h3 {
-  font-size: 21px;
-}
-
 .modalContainer img {
   width: 532px;
 }
@@ -340,10 +269,6 @@ body {
 .modalContainer #map {
   width: 550px;
   height: 262px;
-}
-
-.modalContainer a {
-  color: white;
 }
 
 .modalContainer #websiteLink {
@@ -362,17 +287,24 @@ body {
   font-size: 18px;
 }
 
-.modalContainer .bookButtonContainer {
-  text-align: center;
-}
-
-.modalContainer #bookHotel {
+.modalContainer button {
+  color: white;
   background-color: #357088;
   text-transform: uppercase;
   padding: 6px 46.5px 6px 46.5px;
   font-size: 30px;
   text-decoration: none;
   border: 7px;
+}
+
+.modalContainer button:hover {
+  background-color: #295668;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.modalContainer .bookButtonContainer {
+  text-align: center;
 }
 
 .modalContainer ul {
@@ -392,11 +324,9 @@ body {
 
 .menu h2 {
   text-transform: uppercase;
-  font-size: 30px;
 }
 
 .menu h3 {
-  font-size: 25px;
   font-weight: 400;
   width: 7rem;
 }
@@ -417,7 +347,6 @@ body {
   -webkit-box-align: bottom;
       -ms-flex-align: bottom;
           align-items: bottom;
-  font-size: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -430,32 +359,49 @@ body {
   margin-left: 283px;
 }
 
-/*#backgroundBlur {
-    top: 0px;
-    left:0px;
-    position: absolute; //is there a way to do this without absolute?
-    background-color: $dark;
-    opacity: 0.8;
-    width: 100vw;
-    height: 100vh;
-    margin: 0px;
-}*/
+#hotelBackButtonContainer .backButton:hover {
+  background-color: #295668;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#bookingPortal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
 #bookingPortalContainer {
   background-color: #373737;
   width: 40vw;
   height: 566px;
   color: white;
   border-radius: 20px;
-  position: absolute;
 }
 
-#bookingPortalContainer .closeModal {
+#bookingPortalContainer #closeBookingPortal {
   color: white;
   border: none;
   background-color: #373737;
   font-size: 25px;
   margin-top: 10px;
   margin-left: 20px;
+}
+
+#bookingPortalContainer #closeBookingPortal:hover {
+  background-color: #295668;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 #bookingPortalContainer form {
@@ -492,6 +438,12 @@ body {
   border: none;
   color: white;
   margin-top: 40px;
+}
+
+#bookingPortalContainer form #submitButton:hover {
+  background-color: #295668;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 /* validation.css from live validation library */
