@@ -1,4 +1,6 @@
-"use strict";
+(function () {
+    'use strict';
+}());
 
 $(
     function globalFunction() {
@@ -8,13 +10,13 @@ $(
         var maxPrice = 0;
 
         //accommodation data
-        const data = {
+        var data = {
             //min people, max people, price, min nights, max nights
             hotel: [1, 2, 157, 1, 5],
             hostel: [1, 1, 30, 1, 10],
             motel: [2, 4, 90, 3, 10],
             house: [1, 4, 240, 2, 15]
-        }
+        };
 
         //calculation variables
         var availablePlaces;
@@ -28,7 +30,7 @@ $(
                 hostel: false,
                 motel: false,
                 house: false
-            }
+            };
 
             //calculate people amount match
             if (peopleAmount >= data.hotel[0] && peopleAmount <= data.hotel[1]) {
@@ -57,7 +59,7 @@ $(
                 hostel: false,
                 motel: false,
                 house: false
-            }
+            };
 
             if (data.hotel[2] <= maxPrice) {
                 priceData.hotel = true;
@@ -85,7 +87,7 @@ $(
                 hostel: false,
                 motel: false,
                 house: false
-            }
+            };
 
             if (nightsAmount >= data.hotel[3] && nightsAmount <= data.hotel[4]) {
                 nightsData.hotel = true;
@@ -113,7 +115,7 @@ $(
                 hostel: false,
                 motel: false,
                 house: false
-            }
+            };
 
             if (availablePlaces.hotel === true && availablePrice.hotel === true && availableNights.hotel === true) {
                 accommodationAvailablity.hotel = true;
@@ -135,8 +137,8 @@ $(
         }
 
         $('#searchButton').click(function () {
-
-            if (!LiveValidation.massValidate( [ validatedPeopleInput, validatedNightsInput, validatedPriceInput ] )) {
+            if (!LiveValidation.massValidate([validatedPeopleInput, validatedNightsInput, validatedPriceInput])) {
+                toastr.error('Please Fill Out All Boxes!');
                 return;
             }
 
@@ -255,21 +257,21 @@ $(
             //hotel breakfast
             hotelBreakfast.forEach(function (hotelBreakfast) {
                 ulBreakfast += '<li>' + hotelBreakfast + '</li>';
-            })
+            });
             ulBreakfast += '</ul>';
             $('#hotelBreakfastContainer').html(ulBreakfast);
 
             //hotel lunch
             hotelLunch.forEach(function (hotelLunch) {
                 ulLunch += '<li>' + hotelLunch + '</li>';
-            })
+            });
             ulLunch += '</ul>';
             $('#hotelLunchContainer').html(ulLunch);
 
             //hotel dinner
             hotelDinner.forEach(function (hotelDinner) {
                 ulDinner += '<li>' + hotelDinner + '</li>';
-            })
+            });
             ulDinner += '</ul>';
             $('#hotelDinnerContainer').html(ulDinner);
         }
@@ -287,21 +289,21 @@ $(
             //hotel breakfast
             hostelBreakfast.forEach(function (hostelBreakfast) {
                 ulBreakfast += '<li>' + hostelBreakfast + '</li>';
-            })
+            });
             ulBreakfast += '</ul>';
             $('#hostelBreakfastContainer').html(ulBreakfast);
 
             //hotel lunch
             hostelLunch.forEach(function (hostelLunch) {
                 ulLunch += '<li>' + hostelLunch + '</li>';
-            })
+            });
             ulLunch += '</ul>';
             $('#hostelLunchContainer').html(ulLunch);
 
             //hotel dinner
             hostelDinner.forEach(function (hostelDinner) {
                 ulDinner += '<li>' + hostelDinner + '</li>';
-            })
+            });
             ulDinner += '</ul>';
             $('#hostelDinnerContainer').html(ulDinner);
         }
@@ -319,7 +321,7 @@ $(
             //motel breakfast
             motelBreakfast.forEach(function (motelBreakfast) {
                 ulBreakfast += '<li>' + motelBreakfast + '</li>';
-            })
+            });
             ulBreakfast += '</ul>';
             $('#motelBreakfastContainer').html(ulBreakfast);
 
@@ -333,7 +335,7 @@ $(
             //hotel dinner
             motelDinner.forEach(function (motelDinner) {
                 ulDinner += '<li>' + motelDinner + '</li>';
-            })
+            });
             ulDinner += '</ul>';
             $('#motelDinnerContainer').html(ulDinner);
         }
@@ -351,21 +353,21 @@ $(
             //hotel breakfast
             houseBreakfast.forEach(function (houseBreakfast) {
                 ulBreakfast += '<li>' + houseBreakfast + '</li>';
-            })
+            });
             ulBreakfast += '</ul>';
             $('#houseBreakfastContainer').html(ulBreakfast);
 
             //hotel lunch
             houseLunch.forEach(function (houseLunch) {
                 ulLunch += '<li>' + houseLunch + '</li>';
-            })
+            });
             ulLunch += '</ul>';
             $('#houseLunchContainer').html(ulLunch);
 
             //hotel dinner
             houseDinner.forEach(function (houseDinner) {
                 ulDinner += '<li>' + houseDinner + '</li>';
-            })
+            });
             ulDinner += '</ul>';
             $('#houseDinnerContainer').html(ulDinner);
         }
@@ -381,8 +383,19 @@ $(
 
         //submit booking form
         $('#submitButton').click(function () {
-            $('#bookingPortal').hide();
-            $('#bookingConfirmation').show();
+            //booking form inputs
+            var firstName = $('#firstName').val().trim();
+            var lastName = $('#lastName').val().trim();
+            var email = $('#email').val().trim();
+            var mobileNumber = $('#mobileNumber').val().trim();
+
+            if (firstName === '' || lastName === '' || email === '' || mobileNumber === '') {
+                toastr.error('Please Fill Out All Boxes!');
+                return;
+            }
+            //toastr.options.closeButton = true;
+            //toastr.success('Your Booking Has Been Made!', 'Success');
+            alert("Your Booking Has Been Made!");
         });
 
         //live validation, code from live validation library

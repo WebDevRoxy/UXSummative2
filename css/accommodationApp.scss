@@ -38,10 +38,14 @@ h1 {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 35px;
 }
 
 h3 {
+    font-size: 25px;
+}
+
+h4 {
     font-size: 21px;
 }
 
@@ -105,10 +109,6 @@ body {
         margin-left: 283px;
         padding-top: 20px;
         padding-bottom: 20px;
-        //Auckland Accommodation Finder text in input box area
-        #h1 {
-            align-items: bottom; //check this
-        }
         //input boxes
         .preferencesFormSection {
             display: inline-block;
@@ -143,7 +143,8 @@ body {
 //display in black box before searching
 #preSearchScreen {
     font-size: 40px;
-    color: $colorAccentSecondary;
+    color: $light;
+    margin-bottom: 100px;
     @include accommodationBackground();
 }
 
@@ -234,17 +235,21 @@ body {
         display: grid;
         justify-content: left;
     }
+    //accommodation name
+    h2 {
+        text-transform: uppercase;
+    }
     //accommodation image
     img {
         width: 532px;
     }
     //google map
-    #map {
+    .map {
         width: 550px;
         height: 262px;
     }
     //link to website
-    #websiteLink {
+    .websiteLink {
         background-color: $colorAccentSecondary;
         border-radius: 10px 10px 0px 0px;
         font-size: $infoTextSize;
@@ -254,6 +259,7 @@ body {
         padding-top: 9px;
         padding-bottom: 9px;
         text-align: center;
+        color: $light;
     }
     //accommodation description
     p {
@@ -289,10 +295,6 @@ body {
 //menu
 .menu {
     margin-top: 1rem;
-    //menu text
-    h2 {
-        text-transform: uppercase;
-    }
     //breakfast, lunch, dinner text
     h3 {
         font-weight: 400;
@@ -306,17 +308,21 @@ body {
     padding-left: 1.5rem;
 }
 //return to hompage
-#hotelBackButtonContainer {
+.backButtonContainer {
     background-color: $lightAccent;
     width: 100vw;
-    align-items: bottom;
     display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
     //return to homepage button
     .backButton {
         color: $dark;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         margin-left: 283px;
+        background: none;
+        border: none;
+        font-size: $infoTextSize;
         &:hover {
             @include buttonHover();
         }
@@ -337,6 +343,7 @@ body {
 
 #bookingPortalContainer {
     background-color: $darkAccent;
+    margin-top: 100px;
     width: 40vw;
     height: 566px;
     color: $light;

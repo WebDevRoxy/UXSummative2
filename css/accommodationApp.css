@@ -8,10 +8,14 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 h3 {
+  font-size: 25px;
+}
+
+h4 {
   font-size: 21px;
 }
 
@@ -59,12 +63,6 @@ body {
   padding-bottom: 20px;
 }
 
-#accommodationSearchContainer #accommodationSearch #h1 {
-  -webkit-box-align: bottom;
-      -ms-flex-align: bottom;
-          align-items: bottom;
-}
-
 #accommodationSearchContainer #accommodationSearch .preferencesFormSection {
   display: inline-block;
   margin: 0px 10px;
@@ -98,7 +96,8 @@ body {
 
 #preSearchScreen {
   font-size: 40px;
-  color: #D28500;
+  color: white;
+  margin-bottom: 100px;
   background-color: black;
   border-radius: 10px;
   -webkit-filter: drop-shadow(7px 7px 5px #DEDEDE);
@@ -262,16 +261,20 @@ body {
           justify-content: left;
 }
 
+.modalContainer h2 {
+  text-transform: uppercase;
+}
+
 .modalContainer img {
   width: 532px;
 }
 
-.modalContainer #map {
+.modalContainer .map {
   width: 550px;
   height: 262px;
 }
 
-.modalContainer #websiteLink {
+.modalContainer .websiteLink {
   background-color: #D28500;
   border-radius: 10px 10px 0px 0px;
   font-size: 25px;
@@ -281,6 +284,7 @@ body {
   padding-top: 9px;
   padding-bottom: 9px;
   text-align: center;
+  color: white;
 }
 
 .modalContainer p {
@@ -322,10 +326,6 @@ body {
   margin-top: 1rem;
 }
 
-.menu h2 {
-  text-transform: uppercase;
-}
-
 .menu h3 {
   font-weight: 400;
   width: 7rem;
@@ -341,25 +341,27 @@ body {
   padding-left: 1.5rem;
 }
 
-#hotelBackButtonContainer {
+.backButtonContainer {
   background-color: #DEDEDE;
   width: 100vw;
-  -webkit-box-align: bottom;
-      -ms-flex-align: bottom;
-          align-items: bottom;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#hotelBackButtonContainer .backButton {
-  color: black;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 283px;
 }
 
-#hotelBackButtonContainer .backButton:hover {
+.backButtonContainer .backButton {
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 283px;
+  background: none;
+  border: none;
+  font-size: 25px;
+}
+
+.backButtonContainer .backButton:hover {
   background-color: #295668;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -383,6 +385,7 @@ body {
 
 #bookingPortalContainer {
   background-color: #373737;
+  margin-top: 100px;
   width: 40vw;
   height: 566px;
   color: white;
